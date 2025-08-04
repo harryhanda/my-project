@@ -1,0 +1,26 @@
+Title: Responsive Banking UI with Deposit/Withdrawal Buttons and Balance Display
+
+Description:
+This project is a basic banking interface made using only HTML and CSS. It has a centered card that shows the balance and two buttons: Deposit and Withdraw. The design is clean and simple, with no JavaScript or interactivity.
+
+Features:
+- Centered layout using Flexbox
+- Balance shown clearly on a card
+- Two colored buttons for deposit (green) and withdraw (red)
+- Clean styling with soft background colors
+- Works well on desktop and mobile screens
+
+Validations:
+- Used proper HTML structure
+- CSS Flexbox used for alignment and spacing
+- No extra or unnecessary code included
+
+Learnings:
+- Practiced layout design using Flexbox
+- Learned how to build simple responsive UIs
+- Improved CSS skills for spacing, alignment, and button styling
+
+Note:
+This is a static design. In the future, I will use JavaScript to add real functionality.
+
+Submitted by: Harinder singh (23BAI70268)

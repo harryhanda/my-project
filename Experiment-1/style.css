@@ -5,7 +5,7 @@ form {
   border: 20px ridge hsl(0, 12%, 51%);
   border-radius: 10px;
   padding: 50px;
-  margin: 100px auto;
+  margin: 100px ;
   display: flex;
     flex-direction: column;
 }
