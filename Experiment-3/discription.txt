@@ -1,0 +1,94 @@
+TITLE:
+Admin Dashboard with CSS Grid Layout and Theme Switching
+
+OBJECTIVE:
+Design and build a professional, responsive admin dashboard interface using HTML, CSS Grid layout, and a theme switching feature (light and dark modes).
+
+TASK DESCRIPTION:
+Create a web-based admin dashboard page that includes the following sections:
+
+- Header: Contains the dashboard title and a theme switch (light/dark).
+- Sidebar: Navigation links such as Home, Users, and Settings.
+- Main Content Area: Placeholder for data visualization, reports, or welcome messages.
+- Footer: Displays footer text or copyright.
+
+The layout must use CSS Grid for structure and theme switching to toggle between light and dark modes without page reload.
+
+TEST CASES & VALIDATIONS
+
+1. HEADER (Theme Toggle Functionality)
+- Requirement: Toggling the checkbox should switch the dashboard from light mode to dark mode.
+- Valid Input:
+    - Checkbox checked → Dark mode styles applied (dark backgrounds, light text).
+    - Checkbox unchecked → Light mode styles applied (light backgrounds, dark text).
+- Invalid Input:
+    - Not applicable (toggle is a binary control).
+
+2. SIDEBAR LINKS (Navigation)
+- Requirement: Links must be present and clickable (Home, Users, Settings).
+- Valid Input:
+    - Clicking a link navigates to the intended section/page (placeholder here).
+- Invalid Input:
+    - Missing href attribute → link does nothing.
+
+3. LAYOUT RESPONSIVENESS
+- Requirement: The dashboard should maintain structure across different screen sizes.
+- Valid Input:
+    - On desktop, sidebar and main content display side by side.
+    - On small screens, layout stacks appropriately.
+- Invalid Input:
+    - Layout overlaps or breaks when resizing the window.
+
+4. FORM SUBMISSION
+- Not applicable — dashboard contains no input forms.
+
+CSS STYLING BREAKDOWN: A STRUCTURED OVERVIEW
+
+1. ELEMENT: :root (CSS Variables)
+- Purpose: Defines theme colors for light mode by default.
+- Properties:
+  - --bg-color-header, --bg-color-nav, --bg-color-main, --bg-color-footer, --text-colour
+
+2. ELEMENT: .dashboard (Main Grid Container)
+- Purpose: Arranges the dashboard using CSS Grid.
+- Properties & Effects:
+  - display: grid; → enables grid layout.
+  - grid-template-columns: 400px auto; → two columns: fixed sidebar + flexible main area.
+  - grid-template-rows: 100px auto 50px; → header, content, footer.
+  - border: 3.5px solid #000000; → outlines the dashboard.
+
+3. ELEMENT: header (Top Section)
+- Purpose: Displays title and dark mode toggle.
+- Properties:
+  - background-color: var(--bg-color-header);
+  - display: flex; align-items: center; justify-content: space-between;
+  - Uses theme variables for text color.
+
+4. ELEMENT: nav (Sidebar)
+- Purpose: Displays navigation links.
+- Properties:
+  - background-color: var(--bg-color-nav);
+
+5. ELEMENT: main (Content Area)
+- Purpose: Holds dashboard data or messages.
+- Properties:
+  - background-color: var(--bg-color-main);
+  - color: var(--text-colour);
+
+6. ELEMENT: footer (Bottom Section)
+- Purpose: Shows footer text.
+- Properties:
+  - background-color: var(--bg-color-footer);
+  - grid-column: 1 / span 2; → spans both columns.
+
+7. ELEMENT: #dark-mode-toggle (Checkbox)
+- Purpose: Controls theme switching.
+- Properties:
+  - display: none; → hides the checkbox visually.
+  - input:checked ~ .dashboard { ... } → updates CSS variables for dark mode.
+
+LEARNING OUTCOMES:
+1. How to create a responsive layout using CSS Grid.
+2. How to implement theme switching using CSS variables and a toggle input.
+3. Understanding the application of CSS custom properties for adaptable theming.
+4. How to maintain accessibility and usability across different devices.
