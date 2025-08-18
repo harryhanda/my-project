@@ -1,0 +1,76 @@
+# LIVE CHARACTER COUNTER – TEST CASES & DESCRIPTION
+
+## 1. FIELD: Textarea (User Input)
+
+**Requirement:** Provide an input box where the user can freely type text.  
+**Behavior:** Each keystroke (typing or deleting) should immediately update the character count.  
+
+✅ **Valid Inputs:**  
+- `"Hello World"` → Characters: 11  
+- `"123456"` → Characters: 6  
+- `"AI @ 2025!"` → Characters: 10  
+
+❌ **Invalid Inputs:**  
+- `"" (empty)` → Characters: 0 (works correctly, not an error).  
+
+---
+
+## 2. CHARACTER COUNTER (Output Display)
+
+**Requirement:** Show the total number of characters typed into the textarea.  
+**Behavior:** The count must change live without reloading the page.  
+
+✅ **Examples:**  
+- Input: `"ChatGPT"` → Output: `Characters: 7`  
+- Input: `"OpenAI Rocks"` → Output: `Characters: 12`  
+
+---
+
+## CSS STYLING OVERVIEW
+
+### ELEMENT: `textarea`
+- **Purpose:** Main input area for user text.  
+- **Key Styles:**  
+  - `width: 100%` → Expands across available width.  
+  - `height: 120px` → Medium-sized typing box.  
+  - `padding: 10px` → Comfortable spacing inside.  
+  - `font-size: 16px` → Clear text visibility.  
+  - `box-sizing: border-box` → Ensures padding is included in total size.  
+  - `border: 2px solid #ccc` → Soft border.  
+  - `border-radius: 6px` → Rounded corners.  
+  - `resize: none` → Prevents resizing for consistent layout.  
+
+### ELEMENT: `#charCounter`
+- **Purpose:** Displays the live count below the textarea.  
+- **Key Styles:**  
+  - Default text styling (inherits from browser styles).  
+  - Dynamically updated by JavaScript.  
+
+### ELEMENT: `h2` (Heading)
+- **Purpose:** Displays project title.  
+- **Key Styles:**  
+  - Large, bold heading (default browser style unless customized).  
+
+---
+
+## JAVASCRIPT FUNCTIONALITY
+
+**Trigger:** `input` event on the textarea.  
+**Steps:**  
+1. Detect when the user types or deletes.  
+2. Measure the length of the text with `.value.length`.  
+3. Update the counter text (`Characters: X`).  
+
+✅ **Example Flow:**  
+- User types `"AI"`.  
+- Script calculates length = 2.  
+- Counter updates → `Characters: 2`.  
+
+---
+
+## LEARNING OUTCOMES
+
+1. Using `addEventListener("input")` to track real-time typing.  
+2. Updating DOM elements with `.textContent`.  
+3. Applying CSS to style form controls cleanly.  
+4. Understanding how live feedback improves user interaction.  
