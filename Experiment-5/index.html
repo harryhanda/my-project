@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewportt" content="width=device-width, initial-scale=1.0">
+    <title>Product list</title>
+    <h1>product list</h1>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class= "product container">
+        <label for="categoryFilter">Filter by category:</label>
+        <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="books">Books</option>
+        </select>
+    </div>
+    <div class="product-list">
+            <div class="product-item" data-category="clothing">T-Shirt</div>
+            <div class="product-item" data-category="clothing">Jeans</div>
+            <div class="product-item" data-category="electronics">Headphones</div>
+            <div class="product-item" data-category="electronics">Smartphone</div>
+            <div class="product-item" data-category="books">Novel</div>
+            <div class="product-item" data-category="books">Cookbook</div>
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+       <div id="productList"></div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

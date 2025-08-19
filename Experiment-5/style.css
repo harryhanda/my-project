@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+   
+}
+
+h1 {
+    text-align: left;
+}
+
+.product {
+    margin: 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-item {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 1370px;
+    text-align: left;
+  
+ 
+}
