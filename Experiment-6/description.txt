@@ -1,0 +1,82 @@
+Title:
+Interactive SVG Drawing Tool with Mouse Event Handlers
+
+Objective:
+Design and build a web-based drawing tool using SVG or Canvas where users can interactively create shapes with the mouse.
+This develops skills in JavaScript DOM manipulation, SVG/Canvas element creation, and handling advanced mouse events.
+
+Task Description:
+Create a web page that includes a drawing area (SVG or Canvas).
+1) When the user presses the mouse (mousedown), drawing starts at that position.
+2) As the user moves the mouse (mousemove), a shape (line or freehand stroke) is drawn dynamically.
+3) When the mouse is released (mouseup), the shape is completed.
+4) The user can repeat the process to create multiple shapes.
+5) A "Clear" button should erase the drawing area so the user can start fresh.
+All interactions must be implemented using JavaScript only, without reloading the page.
+
+TEST CASES & VALIDATIONS
+
+1. FIELD: Drawing Area
+Requirement:
+- Must respond to mouse actions for drawing.
+- Must allow multiple drawings.
+
+VALID ACTIONS:
+- Click + drag inside → shape drawn.
+- Repeat dragging → multiple shapes.
+INVALID ACTIONS:
+- Click outside canvas → no drawing.
+- Release without drag → no unwanted shape.
+
+2. FIELD: Mouse Events
+Requirement:
+- Must implement mousedown, mousemove, mouseup correctly.
+
+VALID ACTIONS:
+- mousedown → starts drawing.
+- mousemove → continues drawing stroke.
+- mouseup → finalizes shape.
+INVALID ACTIONS:
+- Mousemove without pressing → no drawing.
+- Mouseup outside canvas → safely stops drawing.
+
+3. FIELD: Clear Button
+Requirement:
+- Must reset drawing area.
+
+VALID ACTIONS:
+- Click clear → entire canvas cleared.
+INVALID ACTIONS:
+- Clicking multiple times → no errors, canvas stays empty.
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: body
+- background-color: #f0f0f0;
+- font-family: cursive;
+- padding: 10px;
+
+2. ELEMENT: .container
+- background-color: #ffffff;
+- padding: 20px;
+- border: 1px solid black;
+- border-radius: 10px;
+- box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+3. ELEMENT: #drawingCanvas
+- border: 2px solid #000000;
+- background-color: #ffffff;
+
+4. ELEMENT: #clearButton
+- Provides reset function for the canvas.
+
+Deliverables:
+- index.html → contains drawing canvas and button.
+- style.css → contains all styling rules.
+- script.js → implements drawing logic with mouse events.
+
+Learning Outcomes:
+1) Implementing interactive drawing with JavaScript and mouse events.
+2) Understanding DOM manipulation for dynamic element updates.
+3) Creating a reset (clear) feature with JavaScript.
+4) Enhancing user interaction using real-time drawing tools.
