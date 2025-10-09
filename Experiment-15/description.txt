@@ -1,0 +1,53 @@
+Objective
+The goal of this experiment is to explore how MongoDB can be used to design and implement a data model for an e-commerce catalog. By leveraging nested documents, we can represent products and their multiple variations in a single collection. This exercise strengthens the understanding of schema flexibility, data modeling, and efficient querying in MongoDB.
+
+Introduction
+MongoDB is a widely used NoSQL database that organizes information in a document-based format using BSON (Binary JSON). Unlike traditional relational systems, MongoDB allows hierarchical data to be embedded within documents, making it highly suitable for real-world domains such as online retail. In an e-commerce scenario, a single product often comes in different variations like colors, sizes, or stock levels.
+
+In a relational model, this would typically require multiple interconnected tables and complex joins. MongoDB, however, simplifies this by allowing nested arrays and sub-documents, ensuring that all product-related information stays together. This not only improves query performance but also provides flexibility to adapt as product attributes evolve over time.
+
+Experiment Outline
+In this experiment, we will design a product catalog collection. Each entry in the collection will hold product details such as the name, price, and category, along with an embedded array of variants describing options like color, size, and available stock.
+
+Key focus areas:
+- Designing a schema that can represent multiple product variants.
+- Understanding how embedded documents work in MongoDB.
+- Executing queries on both parent and child fields.
+- Using projections to return only the necessary parts of documents for efficiency.
+
+Methodology
+1. Schema Design:
+- Define essential product attributes such as product name, category, and base price.
+- Create an array of embedded documents for product variants, each containing attributes like size, color, and quantity available.
+
+2. Data Insertion:
+- Insert multiple products with diverse attributes and variations.
+- Populate sample categories to demonstrate flexible querying across different product groups.
+
+3. Querying the Catalog:
+- Retrieve all products to confirm successful insertion.
+- Apply filters by category to showcase selective queries.
+- Access nested fields (like variant color or size) using dot notation.
+- Use projections to limit query results to relevant fields for efficiency.
+
+Analysis
+- MongoDB effectively captures hierarchical data structures within a single document.
+- Queries on embedded fields are direct and avoid the overhead of relational joins.
+- The schema adapts easily to new product attributes without major redesign.
+- Projection capabilities reduce data transfer and improve resource usage.
+- The model closely aligns with real-world retail systems where product variations are common.
+
+Observations
+- A product and its variants can be represented in a single nested document.
+- Querying both top-level and variant-level fields is efficient and straightforward.
+- MongoDB’s schema-less design allows easy expansion of product details.
+- Projections optimize performance when dealing with large documents.
+- The nested model is highly practical for managing e-commerce catalogs.
+
+Conclusion
+This experiment highlights how MongoDB’s document model is well-suited for building scalable and flexible e-commerce catalogs. By embedding variant details directly within product documents, it eliminates the complexity of joins, speeds up queries, and adapts easily to new requirements. This structure is not only efficient but also mirrors real-world product hierarchies, making it an ideal approach for modern online retail and similar applications.
+
+Applications
+- Online shopping platforms to manage product listings and variations.
+- Inventory systems where stock levels differ by product options.
+- Content and asset management solutions requiring hierarchical structures.
