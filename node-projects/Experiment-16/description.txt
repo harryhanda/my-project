@@ -1,0 +1,74 @@
+# **Experiment 16: Bank Account Transfer System (Node.js REST API)**
+
+**Technologies:** Express.js, MongoDB, Mongoose
+**Objective:** Implement a secure and reliable money transfer system with balance validation.
+
+---
+
+### **Core Features**
+
+*   Unique account creation and management.
+*   Secure money transfers between accounts.
+*   Balance check and insufficient funds prevention.
+*   Rollback mechanism for failed transactions.
+*   Robust error handling.
+
+---
+
+### **API Endpoints**
+
+*   `GET /api/health`: Health check.
+*   `POST /api/users`: Create user.
+*   `GET /api/users`: Retrieve all users.
+*   `POST /api/transfer`: Transfer money.
+*   `GET /api/balance/:accountNumber`: Check balance.
+
+---
+
+### **Implementation Details**
+
+*   Sequential transfer process: debit then credit.
+*   Automatic rollback on transaction failure.
+*   Strict input validation.
+*   Prevention of same-account and negative-amount transfers.
+
+---
+
+### **Testing**
+
+*   Comprehensive test suite with sample users.
+*   Tests cover successful transfers and insufficient balance scenarios.
+*   Error handling validation for invalid inputs and accounts.
+
+---
+
+### **Security Measures**
+
+*   Sufficient balance check before transfer.
+*   Account existence verification.
+*   Input sanitization and data validation.
+*   Data consistency via rollback logic.
+
+---
+
+### **Files**
+
+*   `server.js`: API server entry point.
+*   `models/User.js`: User schema/model.
+*   `test-api.js`: Automated API tests.
+*   `Bank-Transfer-API.postman_collection.json`: Postman collection.
+
+---
+
+### **Usage**
+
+1.  Start MongoDB.
+2.  Run: `npm run dev`
+3.  Server: [http://localhost:3000](http://localhost:3000)
+4.  Run tests: `npm test`
+
+---
+
+### **Summary**
+
+This experiment demonstrates secure financial transactions using Node.js and MongoDB with application-level validation and rollback mechanisms, ensuring safe and consistent money transfers without relying on database transactions.
