@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I'm Sorry ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffd6e0,#e6d6ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow-x:hidden;
+}
+
+/* floating emoji background */
+.emoji-bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.emoji{
+  position:absolute;
+  font-size:22px;
+  opacity:0.5;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(100vh) scale(0.8);opacity:0;}
+  20%{opacity:0.6;}
+  to{transform:translateY(-10vh) scale(1.2);opacity:0;}
+}
+
+/* Card */
+.container{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(14px);
+  border-radius:24px;
+  padding:28px 22px 30px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+  position:relative;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
+
+.message{
+  font-size:0.95rem;
+  line-height:1.6;
+  color:#333;
+  margin-bottom:26px;
+}
+
+/* Buttons */
+.btn-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  min-height:90px;
+  position:relative;
+}
+
+button{
+  border:none;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.25s ease;
+  font-size:0.95rem;
+}
+
+.forgive{
+  background:#ff4d6d;
+  color:white;
+  box-shadow:0 8px 20px rgba(255,77,109,0.35);
+}
+
+.forgive:hover{
+  transform:translateY(-2px) scale(1.05);
+}
+
+.notyet{
+  background:#fff;
+  color:#444;
+  position:relative;
+  transition:left 0.25s ease, top 0.25s ease, transform 0.25s ease;
+}
+
+/* Messages */
+.success{
+  display:none;
+  margin-top:20px;
+  font-weight:600;
+  color:#ff4d6d;
+  animation:fadeIn 0.6s ease;
+}
+
+.comfort{
+  display:none;
+  margin-top:14px;
+  color:#555;
+  font-weight:500;
+  animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Music toggle */
+.music-toggle{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:white;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+</style>
+</head>
+
+<body>
+
+<div class="emoji-bg" id="emojiBg"></div>
+
+<div class="container">
+
+  <div class="music-toggle" id="musicBtn">🎵</div>
+
+  <h1>I'm Sorry 💔</h1>
+
+  <p class="message">
+    Hii Hanu🥹 I know I messed up.  
+    You did not deserve that moment and I truly regret it.  
+    I am trying to be better not just saying it.  
+    You matter to me more than my ego ever will.I luv you na sweet❤️
+  </p>
+
+  <div class="btn-wrap" id="btnWrap">
+    <button class="forgive" id="forgiveBtn">💚 Okay… I forgive you</button>
+    <button class="notyet" id="noBtn">😈 Not yet</button>
+  </div>
+
+  <div class="comfort" id="comfortMsg">
+    Okay okay 😭 I deserve that… but I’m not giving up on us that easily 💗
+  </div>
+
+  <div class="success" id="successMsg">
+   ufff !!! 🥹 You just made my whole world brighter again. luvv uh so muchh🫂❤️✨
+  </div>
+
+</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" preload="auto">
+  <source src="dildaara.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🔊 Success Sound -->
+<audio id="successSound" preload="auto">
+  <source src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" type="audio/mp3">
+</audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const forgiveBtn = document.getElementById("forgiveBtn");
+const successMsg = document.getElementById("successMsg");
+const comfortMsg = document.getElementById("comfortMsg");
+const musicBtn = document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+const successSound = document.getElementById("successSound");
+const emojiBg = document.getElementById("emojiBg");
+
+let playing = false;
+let notYetClicks = 0;
+
+/* 🎵 music */
+musicBtn.addEventListener("click", () => {
+  if(!playing){
+    music.play();
+    musicBtn.textContent = "🔊";
+  } else {
+    music.pause();
+    musicBtn.textContent = "🎵";
+  }
+  playing = !playing;
+});
+
+/* 💚 forgive */
+forgiveBtn.addEventListener("click", () => {
+  successMsg.style.display = "block";
+
+  confetti({
+    particleCount:120,
+    spread:70,
+    origin:{y:0.6}
+  });
+
+  // 🔊 play Dildaara
+  music.currentTime = 0;
+  music.play();
+});
+
+/* 😈 click logic */
+noBtn.addEventListener("click", () => {
+  notYetClicks++;
+
+  if(notYetClicks === 1){
+    comfortMsg.style.display = "block";
+    return;
+  }
+
+  nudgeButton();
+});
+
+/* 😈 hover dodge (desktop only after first click) */
+noBtn.addEventListener("mouseenter", () => {
+  if(notYetClicks >= 2){
+    nudgeButton();
+  }
+});
+
+/* gentle movement */
+function nudgeButton(){
+  const range = 200; // 🔥 small movement only
+
+  const offsetX = (Math.random() - 0.5) * range;
+  const offsetY = (Math.random() - 0.5) * range;
+
+  noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+}
+
+/* floating emojis */
+const emojis = ["💔","🥺","❤️","😔","💗","😭"];
+
+function createEmoji(){
+  const el = document.createElement("div");
+  el.className = "emoji";
+  el.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+  el.style.left = Math.random()*100 + "vw";
+  el.style.animationDuration = (6 + Math.random()*6) + "s";
+  el.style.fontSize = (18 + Math.random()*14) + "px";
+
+  emojiBg.appendChild(el);
+  setTimeout(()=> el.remove(),12000);
+}
+setInterval(createEmoji, 900);
+</script>
+
+</body>
+</html>
